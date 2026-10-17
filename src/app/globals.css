@@ -10,6 +10,8 @@
   --text: #10251d;
   --text-muted: #52675c;
   --border: #d6e4db;
+  --ring: #047857;
+  --muted-foreground: #52675c;
 }
 
 .dark {
@@ -22,6 +24,8 @@
   --text: #f0fdf4;
   --text-muted: #a7c4b5;
   --border: #244438;
+  --ring: #34d399;
+  --muted-foreground: #a7c4b5;
 }
 
 @custom-variant dark (&:where(.dark, .dark *));
@@ -34,7 +38,9 @@
   --color-accent-soft: var(--accent-soft);
   --color-foreground: var(--text);
   --color-muted: var(--text-muted);
+  --color-muted-foreground: var(--muted-foreground);
   --color-border: var(--border);
+  --color-ring: var(--ring);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -66,7 +72,7 @@ body {
 }
 
 :focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 2px solid var(--ring);
   outline-offset: 3px;
 }
 
