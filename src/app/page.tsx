@@ -35,15 +35,13 @@ export default function Home() {
             className="mt-8 flex animate-fade-up flex-col gap-3 min-[420px]:flex-row min-[420px]:items-center sm:mt-9 sm:gap-5"
             style={{ animationDelay: "240ms" }}
           >
-            <button
-              type="button"
-              disabled
-              title="CV PDF is not available yet"
-              aria-label="Download CV (CV PDF not available yet)"
-              className="inline-flex min-h-12 cursor-not-allowed items-center justify-center gap-3 bg-accent px-5 text-sm font-medium text-background disabled:opacity-100"
+            <a
+              href="/Ivwananji_Silungwe_CV.pdf"
+              download="Ivwananji_Silungwe_CV.pdf"
+              className="inline-flex min-h-12 items-center justify-center gap-3 bg-accent px-5 text-sm font-medium text-background hover:opacity-90"
             >
               Download CV <Download aria-hidden="true" className="size-4" />
-            </button>
+            </a>
             <HeroSocials />
           </div>
         </div>

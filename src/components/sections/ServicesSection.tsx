@@ -142,19 +142,19 @@ export function ServicesSection() {
               className={`service-card ${hasEntered ? "animate-fade-up" : ""}`}
               style={{ animationDelay: `${index * 42}ms` }}
             >
-              <div className="service-card-icon mb-5 inline-flex size-11 items-center justify-center border border-accent/30 bg-surface-elevated text-accent-blue">
+              <div className="service-card-icon mb-4 inline-flex size-11 items-center justify-center border border-accent/30 bg-surface-elevated text-accent-blue">
                 <Icon aria-hidden="true" className="size-5" strokeWidth={1.7} />
               </div>
               <h3
                 id={`service-title-${service.id}`}
-                className="max-w-xs text-lg font-medium leading-snug tracking-tight text-foreground"
+                className="text-base font-medium leading-snug tracking-tight text-foreground sm:text-lg"
               >
                 {service.title}
               </h3>
-              <p className="mt-3 text-sm leading-6 text-muted-foreground">
+              <p className="mt-2.5 text-sm leading-7 text-muted-foreground">
                 {service.description}
               </p>
-              <p className="mt-5 border-t border-border/80 pt-3 font-mono text-[0.68rem] leading-5 tracking-[0.04em] text-accent-blue">
+              <p className="mt-4 border-t border-border/80 pt-3 font-mono text-xs leading-6 tracking-[0.02em] text-accent-blue">
                 {service.focus}
               </p>
             </article>

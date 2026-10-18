@@ -11,17 +11,17 @@ export function Footer() {
           <Link href="/services" className="hover:text-accent">
             Services
           </Link>
-          <Link href="/projects" className="hover:text-accent">
-            Portfolio
-          </Link>
-          <Link href="/about" className="hover:text-accent">
-            About
-          </Link>
           <Link href="/resume" className="hover:text-accent">
             Resume
           </Link>
+          <Link href="/projects" className="hover:text-accent">
+            Portfolio
+          </Link>
           <Link href="/contact" className="hover:text-accent">
             Contact
+          </Link>
+          <Link href="/about" className="hover:text-accent">
+            About
           </Link>
         </nav>
       </div>

@@ -1,6 +1,6 @@
 import type { StaticImageData } from "next/image";
-import novaWalletShowcase from "@/assets/NovaWallet Neon Tech Showcase.png";
-import medQueueShowcase from "@/assets/MedQueue Healthcare Dashboard Showcase.png";
+import novaWalletShowcase from "@/assets/optimized/NovaWallet Neon Tech Showcase.webp";
+import medQueueShowcase from "@/assets/optimized/MedQueue Healthcare Dashboard Showcase.webp";
 
 export interface FeaturedProject {
   name: string;

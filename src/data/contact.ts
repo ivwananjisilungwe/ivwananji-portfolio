@@ -15,4 +15,14 @@ export interface ContactMethod {
   external?: boolean;
 }
 
-export const contactMethods: readonly ContactMethod[] = [];
+// Only entries whose details have been confirmed should be added here.
+// Do not fabricate email addresses, phone numbers, or profile URLs.
+export const contactMethods: readonly ContactMethod[] = [
+  {
+    label: "GitHub",
+    value: "github.com/ivwananjisilungwe",
+    href: "https://github.com/ivwananjisilungwe/",
+    icon: "github",
+    external: true,
+  },
+];

@@ -11,6 +11,21 @@ export function ExperiencePanel() {
           problems.
         </p>
       </div>
+      <div className="border border-border bg-surface-elevated p-5">
+        <p className="font-mono text-xs uppercase tracking-[0.16em] text-accent">
+          Project-based work
+        </p>
+        <ul className="mt-3 space-y-3 text-sm text-foreground">
+          <li className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 sm:gap-3">
+            <span className="font-medium">NovaWallet — Full-Stack Digital Wallet</span>
+            <span className="text-muted-foreground">Personal project · Flutter mobile app with Spring Boot REST API</span>
+          </li>
+          <li className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 sm:gap-3">
+            <span className="font-medium">MedQueue — Healthcare Queue &amp; Appointment Management</span>
+            <span className="text-muted-foreground">Collaborative team project · Android and Spring Boot application</span>
+          </li>
+        </ul>
+      </div>
       <p className="font-mono text-xs uppercase tracking-[0.16em] text-muted-foreground">
         Project-based learning in progress · no professional employment history claimed
       </p>

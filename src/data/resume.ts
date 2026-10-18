@@ -23,15 +23,19 @@ export const skillCategories: readonly SkillCategory[] = [
     items: ["Java", "Python", "Dart", "TypeScript"],
   },
   {
-    title: "Frameworks & Application Development",
+    title: "Application Frameworks",
     items: ["Spring Boot", "Flutter", "React", "Next.js"],
   },
   {
-    title: "Data & Machine Learning",
+    title: "Data & Persistence",
+    items: ["PostgreSQL"],
+  },
+  {
+    title: "Data Analysis & Machine Learning",
     items: ["Data analysis", "Machine learning"],
   },
   {
-    title: "Engineering Tools & Systems",
-    items: ["Linux", "Git", "Docker", "PostgreSQL", "Kafka", "MQTT"],
+    title: "Engineering Tools & Distributed Systems",
+    items: ["Docker", "Linux", "Git", "Kafka", "MQTT"],
   },
 ];

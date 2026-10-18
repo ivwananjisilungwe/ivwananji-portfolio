@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import {
   ArrowRight,
-  Globe,
+  ExternalLink,
   Mail,
   MapPin,
   Phone,
@@ -10,6 +10,8 @@ import {
 import type { ComponentType } from "react";
 
 import { contactMethods, type ContactIcon } from "@/data/contact";
+import { BrandIcon } from "@/components/icons/brand-icon";
+import { SocialLinks } from "@/components/home/hero-socials";
 
 export const metadata: Metadata = {
   title: "Contact — IVWANANJI",
@@ -19,20 +21,21 @@ export const metadata: Metadata = {
 
 const iconMap: Record<ContactIcon, ComponentType<{ "aria-hidden"?: boolean; className?: string }>> = {
   mail: Mail,
-  github: Globe,
-  linkedin: Globe,
+  github: GithubBrandIcon,
+  linkedin: ExternalLink,
   phone: Phone,
   "map-pin": MapPin,
-  globe: Globe,
+  globe: ExternalLink,
 };
 
 const missingDetails = [
   "A verified email address (enables a working mailto: link)",
-  "GitHub profile URL",
-  "LinkedIn profile URL",
-  "Any other developer or social profile URLs",
   "Optional phone number and location",
 ] as const;
+
+function GithubBrandIcon({ className }: { className?: string }) {
+  return <BrandIcon name="github" className={className} />;
+}
 
 export default function ContactPage() {
   const hasMethods = contactMethods.length > 0;
@@ -122,22 +125,23 @@ export default function ContactPage() {
             </div>
             <div className="space-y-5 text-base leading-7 text-muted-foreground">
               <p>
-                To keep this page honest, no email, phone, or profile links are
-                shown until they&apos;ve been verified. There is no contact form
-                here either — a form that can&apos;t deliver a message would only
+                To keep this page honest, no email or phone number is shown
+                until verified. Social profiles are listed below. There is no
+                contact form here either — a form that can&apos;t deliver a message would only
                 create a false impression.
               </p>
               <p>
-                When verified details are available, they can be added to{" "}
-                <code className="font-mono text-sm text-foreground">src/data/contact.ts</code>{" "}
-                and they&apos;ll appear above as working links automatically.
+                A verified email address or optional phone number can be added
+                to <code className="font-mono text-sm text-foreground">src/data/contact.ts</code>.
+                Social profile links are maintained in{" "}
+                <code className="font-mono text-sm text-foreground">src/data/socials.ts</code>.
               </p>
             </div>
           </div>
 
           <div className="mt-10 animate-fade-up border border-border bg-surface-elevated p-5 sm:p-6">
             <p className="font-mono text-xs uppercase tracking-[0.16em] text-accent-blue">
-              Details needed to enable contact links
+              Details needed to enable direct contact
             </p>
             <ul className="mt-4 space-y-2">
               {missingDetails.map((detail) => (
@@ -156,6 +160,24 @@ export default function ContactPage() {
           </div>
         </section>
       )}
+
+      <section
+        aria-labelledby="socials-title"
+        className="mt-16 border-t border-border pt-12 sm:mt-20 sm:pt-16"
+      >
+        <p className="mb-3 font-mono text-xs uppercase tracking-[0.16em] text-accent">
+          Social profiles
+        </p>
+        <h2
+          id="socials-title"
+          className="text-2xl font-medium tracking-tight text-foreground sm:text-3xl"
+        >
+          Find me online.
+        </h2>
+        <div className="mt-7">
+          <SocialLinks exclude={["github"]} />
+        </div>
+      </section>
 
       <section
         aria-labelledby="elsewhere-title"
