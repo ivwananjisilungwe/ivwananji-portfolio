@@ -32,6 +32,6 @@ export const skillCategories: readonly SkillCategory[] = [
   },
   {
     title: "Engineering Tools & Systems",
-    items: ["Linux", "Git", "Docker", "Databases", "Kafka", "MQTT"],
+    items: ["Linux", "Git", "Docker", "PostgreSQL", "Kafka", "MQTT"],
   },
 ];

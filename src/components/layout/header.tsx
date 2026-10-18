@@ -13,11 +13,14 @@ export function Header() {
             <NavLink href="/" className="text-base xl:text-lg">
               Home
             </NavLink>
-            <NavLink href="/#services" className="text-base xl:text-lg">
+            <NavLink href="/services" className="text-base xl:text-lg">
               Services
             </NavLink>
-            <NavLink href="/#resume" className="text-base xl:text-lg">
+            <NavLink href="/resume" className="text-base xl:text-lg">
               Resume
+            </NavLink>
+            <NavLink href="/projects" className="text-base xl:text-lg">
+              Portfolio
             </NavLink>
             <NavLink href="/contact" className="text-base xl:text-lg">
               Contact

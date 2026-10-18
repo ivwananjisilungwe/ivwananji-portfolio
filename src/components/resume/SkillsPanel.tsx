@@ -16,9 +16,8 @@ export function SkillsPanel() {
       <div>
         <h3 className="text-xl font-medium tracking-tight text-foreground sm:text-2xl">Skills</h3>
         <p className="mt-3 max-w-2xl text-sm leading-6 text-muted-foreground sm:text-base sm:leading-7">
-          These reflect my current learning and project interests. They are not independently verified
-          proficiency levels, and some represent areas of active exploration rather than demonstrated
-          competency.
+          Technologies reflect tools used in my projects and areas I&apos;m actively developing.
+          Their inclusion does not imply equal proficiency across the stack.
         </p>
       </div>
       <div

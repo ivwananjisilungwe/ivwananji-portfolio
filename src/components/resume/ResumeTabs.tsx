@@ -90,7 +90,7 @@ export function ResumeTabs() {
               aria-labelledby={`resume-tab-${tab.id}`}
               hidden={!isActive}
               tabIndex={isActive ? 0 : -1}
-              className={isActive ? "" : "hidden"}
+              className={isActive ? "animate-fade-up" : "hidden"}
             >
               <Panel />
             </div>

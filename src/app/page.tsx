@@ -2,26 +2,7 @@ import Link from "next/link";
 import { ArrowRight, Download } from "lucide-react";
 import { HeroVisual } from "@/components/home/hero-visual";
 import { RoleRotator } from "@/components/home/role-rotator";
-import { Resume } from "@/components/sections/Resume";
-import { ServicesSection } from "@/components/sections/ServicesSection";
-
-const engineeringFocus = [
-  {
-    number: "01",
-    title: "Backend systems",
-    detail: "APIs, service boundaries, and the foundations behind reliable applications.",
-  },
-  {
-    number: "02",
-    title: "Data & persistence",
-    detail: "Thoughtful data models and the systems that make information useful.",
-  },
-  {
-    number: "03",
-    title: "Applied problem-solving",
-    detail: "Exploring software for practical challenges, including constrained and offline contexts.",
-  },
-] as const;
+import { HeroSocials } from "@/components/home/hero-socials";
 
 export default function Home() {
   return (
@@ -59,10 +40,11 @@ export default function Home() {
               disabled
               title="CV PDF is not available yet"
               aria-label="Download CV (CV PDF not available yet)"
-              className="inline-flex min-h-12 cursor-not-allowed items-center justify-center gap-3 bg-accent/70 px-5 text-sm font-medium text-background opacity-80"
+              className="inline-flex min-h-12 cursor-not-allowed items-center justify-center gap-3 bg-accent px-5 text-sm font-medium text-background disabled:opacity-100"
             >
               Download CV <Download aria-hidden="true" className="size-4" />
             </button>
+            <HeroSocials />
           </div>
         </div>
 
@@ -71,34 +53,25 @@ export default function Home() {
         </div>
       </section>
 
-      <ServicesSection />
-
-      <Resume />
-
-      <section aria-labelledby="approach-title" className="grid gap-10 py-16 sm:py-20 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-16">
+      <section
+        aria-labelledby="approach-title"
+        className="grid gap-5 py-14 sm:py-16 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:items-end lg:gap-16"
+      >
         <div className="animate-fade-up">
           <p className="mb-3 font-mono text-xs uppercase tracking-[0.16em] text-accent">
             Engineering approach
           </p>
-          <h2 id="approach-title" className="max-w-md text-3xl font-medium tracking-tight text-foreground sm:text-4xl">
+          <h2
+            id="approach-title"
+            className="max-w-md text-3xl font-medium tracking-tight text-foreground sm:text-4xl"
+          >
             Start with the problem. Make the system make sense.
           </h2>
         </div>
-        <ol className="divide-y divide-border border-y border-border">
-          {engineeringFocus.map((item, index) => (
-            <li
-              key={item.number}
-              className="grid animate-fade-up gap-2 py-5 sm:grid-cols-[3rem_minmax(0,1fr)] sm:gap-4 sm:py-6"
-              style={{ animationDelay: `${80 + index * 70}ms` }}
-            >
-              <span className="font-mono text-xs text-muted-foreground">{item.number}</span>
-              <div>
-                <h3 className="text-base font-medium text-foreground">{item.title}</h3>
-                <p className="mt-1 max-w-xl text-sm leading-6 text-muted-foreground">{item.detail}</p>
-              </div>
-            </li>
-          ))}
-        </ol>
+        <p className="max-w-2xl animate-fade-up text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8">
+          I focus on understanding the problem, keeping data and service
+          boundaries clear, and checking that a solution meets its intended need.
+        </p>
       </section>
 
       <section aria-labelledby="closing-title" className="mb-16 border-t border-border py-10 sm:mb-20 sm:py-12">

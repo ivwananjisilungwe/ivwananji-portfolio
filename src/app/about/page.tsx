@@ -248,7 +248,7 @@ export default function AboutPage() {
         </h2>
         <div className="mt-8 grid gap-4 sm:grid-cols-3">
           <Link
-            href="/#resume"
+            href="/resume"
             className="group animate-fade-up border border-border bg-surface p-5 transition-colors hover:border-accent"
             style={{ animationDelay: "0ms" }}
           >

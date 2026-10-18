@@ -2,12 +2,14 @@
 
 import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 
 const navigation = [
   { href: "/", label: "Home" },
-  { href: "/#services", label: "Services" },
-  { href: "/#resume", label: "Resume" },
+  { href: "/services", label: "Services" },
+  { href: "/resume", label: "Resume" },
+  { href: "/projects", label: "Portfolio" },
   { href: "/contact", label: "Contact" },
 ] as const;
 
@@ -17,6 +19,7 @@ interface MobileMenuProps {
 
 export function MobileMenu({ className }: MobileMenuProps = {}) {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
 
   const close = useCallback(() => {
     setIsOpen(false);
@@ -71,7 +74,8 @@ export function MobileMenu({ className }: MobileMenuProps = {}) {
                 key={item.href}
                 href={item.href}
                 onClick={handleLinkClick}
-                className="block min-h-11 py-2 text-base text-foreground hover:text-accent focus-visible:outline-offset-2"
+                aria-current={pathname === item.href ? "page" : undefined}
+                className={`block min-h-11 py-2 text-base transition-colors hover:text-accent focus-visible:outline-offset-2 ${pathname === item.href ? "font-medium text-accent" : "text-foreground"}`}
               >
                 {item.label}
               </Link>

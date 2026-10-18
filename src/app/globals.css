@@ -160,11 +160,34 @@ pre {
   animation: fade-up 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
+@keyframes project-slide-forward {
+  from { opacity: 0; transform: translateX(2rem); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes project-slide-backward {
+  from { opacity: 0; transform: translateX(-2rem); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.project-slide-forward {
+  animation: project-slide-forward 260ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.project-slide-backward {
+  animation: project-slide-backward 260ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-fade-up {
     animation: none;
     opacity: 1;
     transform: none;
+  }
+
+  .project-slide-forward,
+  .project-slide-backward {
+    animation: none;
   }
 }
 
@@ -174,7 +197,6 @@ pre {
   transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
     box-shadow 0.25s cubic-bezier(0.22, 1, 0.36, 1),
     border-color 0.25s cubic-bezier(0.22, 1, 0.36, 1);
-  will-change: transform;
 }
 
 .tech-tile:hover,
@@ -268,8 +290,8 @@ pre {
 .service-card:hover,
 .service-card:focus-visible {
   border-color: var(--accent);
-  box-shadow: 0 16px 32px -24px color-mix(in srgb, var(--accent) 75%, transparent);
-  transform: perspective(1100px) translateY(-5px) rotateX(1deg) rotateY(-0.5deg);
+  box-shadow: 0 20px 40px -20px color-mix(in srgb, var(--accent) 85%, transparent);
+  transform: perspective(1100px) translateY(-8px) rotateX(3deg) rotateY(-2deg) scale(1.02);
 }
 
 .service-card:nth-child(3n + 2):hover,
