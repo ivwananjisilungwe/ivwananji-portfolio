@@ -6,8 +6,8 @@ import { Menu, X } from "lucide-react";
 
 const navigation = [
   { href: "/", label: "Home" },
-  { href: "/projects", label: "Projects" },
-  { href: "/about", label: "About" },
+  { href: "/#services", label: "Services" },
+  { href: "/#resume", label: "Resume" },
   { href: "/contact", label: "Contact" },
 ] as const;
 
@@ -62,15 +62,16 @@ export function MobileMenu({ className }: MobileMenuProps = {}) {
         <div
           id="mobile-menu"
           role="navigation"
-          className="fixed inset-x-0 top-full border-b border-border bg-surface z-50"
+          aria-label="Mobile primary"
+          className="absolute inset-x-0 top-full z-50 animate-fade-up border-b border-border bg-surface"
         >
-          <div className="max-w-5xl mx-auto px-6 sm:px-10 py-4">
+          <div className="site-container py-4">
             {navigation.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 onClick={handleLinkClick}
-                className="block py-2 text-sm text-foreground hover:text-accent-soft"
+                className="block min-h-11 py-2 text-base text-foreground hover:text-accent focus-visible:outline-offset-2"
               >
                 {item.label}
               </Link>

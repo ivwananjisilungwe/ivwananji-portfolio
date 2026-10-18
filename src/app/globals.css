@@ -2,39 +2,59 @@
 
 :root {
   color-scheme: light;
-  --background: #f8faf9;
-  --surface: #ffffff;
-  --surface-elevated: #edf5f0;
-  --accent: #047857;
-  --accent-soft: #d1fae5;
-  --text: #10251d;
-  --text-muted: #52675c;
-  --border: #d6e4db;
-  --ring: #047857;
-  --muted-foreground: #52675c;
+  --background: #F8F7FF;
+  --surface: #FFFFFF;
+  --surface-elevated: #EFEDFF;
+  --accent: #6D28D9;
+  --accent-blue: #0369A1;
+  --accent-soft: #EDE9FE;
+  --text: #181329;
+  --text-muted: #514B67;
+  --border: #807EA0;
+  --ring: #6D28D9;
+  --muted-foreground: #514B67;
 }
 
 .dark {
   color-scheme: dark;
-  --background: #071a17;
-  --surface: #102923;
-  --surface-elevated: #16352c;
-  --accent: #34d399;
-  --accent-soft: #a7f3d0;
-  --text: #f0fdf4;
-  --text-muted: #a7c4b5;
-  --border: #244438;
-  --ring: #34d399;
-  --muted-foreground: #a7c4b5;
+  --background: #0B0B14;
+  --surface: #151525;
+  --surface-elevated: #1D1D32;
+  --accent: #8B5CF6;
+  --accent-blue: #38BDF8;
+  --accent-soft: #2E1F5E;
+  --text: #F5F3FF;
+  --text-muted: #B4B4C8;
+  --border: #606080;
+  --ring: #8B5CF6;
+  --muted-foreground: #B4B4C8;
 }
 
 @custom-variant dark (&:where(.dark, .dark *));
+
+.site-container {
+  width: min(calc(100% - 2rem), 90rem);
+  margin-inline: auto;
+}
+
+@media (min-width: 640px) {
+  .site-container {
+    width: min(calc(100% - 4rem), 90rem);
+  }
+}
+
+@media (min-width: 1024px) {
+  .site-container {
+    width: min(calc(100% - 8rem), 90rem);
+  }
+}
 
 @theme inline {
   --color-background: var(--background);
   --color-surface: var(--surface);
   --color-surface-elevated: var(--surface-elevated);
   --color-accent: var(--accent);
+  --color-accent-blue: var(--accent-blue);
   --color-accent-soft: var(--accent-soft);
   --color-foreground: var(--text);
   --color-muted: var(--text-muted);
@@ -122,4 +142,181 @@ pre {
   transform: translatey(0);
   outline: 2px solid var(--ring);
   outline-offset: 2px;
+}
+
+/* Motion utilities (Milestone 8) */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-up {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* 3D tile hover (Milestone 8) */
+.tech-tile {
+  transform-style: preserve-3d;
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+.tech-tile:hover,
+.tech-tile:focus-visible {
+  transform: translateY(-4px) rotateX(4deg) rotateY(-4deg);
+  box-shadow: 0 12px 24px -12px rgba(139, 92, 246, 0.35);
+  border-color: var(--accent);
+}
+
+.role-rotator-cursor {
+  display: inline-block;
+  margin-left: 0.08em;
+  color: var(--accent);
+  animation: role-cursor-blink 1s steps(2, start) infinite;
+}
+
+@keyframes role-cursor-blink {
+  to {
+    visibility: hidden;
+  }
+}
+
+.hero-visual-grid {
+  background-image: linear-gradient(to right, var(--border) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--border) 1px, transparent 1px);
+  background-size: 25% 25%;
+  mask-image: radial-gradient(ellipse at center, black 15%, transparent 76%);
+  opacity: 0.2;
+}
+
+.hero-node {
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  width: 2.75rem;
+  height: 2.75rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--accent-blue);
+  box-shadow: 0 12px 28px -18px rgba(0, 0, 0, 0.75);
+  transform: perspective(700px) rotateY(-10deg) rotateX(5deg);
+}
+
+.hero-node-code {
+  top: 20%;
+  left: 17%;
+}
+
+.hero-node-data {
+  top: 20%;
+  right: 17%;
+  color: var(--accent);
+  transform: perspective(700px) rotateY(10deg) rotateX(5deg);
+}
+
+.hero-node-services {
+  bottom: 19%;
+  left: 17%;
+}
+
+.hero-node-systems {
+  right: 17%;
+  bottom: 19%;
+  color: var(--accent);
+  transform: perspective(700px) rotateY(10deg) rotateX(-5deg);
+}
+
+.hero-core {
+  transform-style: preserve-3d;
+  box-shadow: 8px 10px 0 -2px var(--surface), 9px 11px 0 -2px var(--border),
+    0 18px 50px -24px rgba(139, 92, 246, 0.6);
+}
+
+.service-card {
+  min-height: 100%;
+  border: 1px solid var(--border);
+  background:
+    linear-gradient(145deg, color-mix(in srgb, var(--accent) 5%, transparent), transparent 55%),
+    var(--surface);
+  padding: 1.25rem;
+  transform-style: preserve-3d;
+  transition:
+    transform 260ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 260ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 260ms cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 260ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.service-card:hover,
+.service-card:focus-visible {
+  border-color: var(--accent);
+  box-shadow: 0 16px 32px -24px color-mix(in srgb, var(--accent) 75%, transparent);
+  transform: perspective(1100px) translateY(-5px) rotateX(1deg) rotateY(-0.5deg);
+}
+
+.service-card:nth-child(3n + 2):hover,
+.service-card:nth-child(3n + 2):focus-visible {
+  border-color: var(--accent-blue);
+  box-shadow: 0 16px 32px -24px color-mix(in srgb, var(--accent-blue) 75%, transparent);
+}
+
+.service-card-icon {
+  transform: translateZ(0);
+  transition:
+    transform 240ms cubic-bezier(0.22, 1, 0.36, 1),
+    color 240ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 240ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.service-card:hover .service-card-icon,
+.service-card:focus-visible .service-card-icon {
+  border-color: color-mix(in srgb, var(--accent-blue) 65%, var(--border));
+  color: var(--accent);
+  transform: translateY(-2px) translateZ(8px) scale(1.05);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tech-tile,
+  .tech-tile:hover,
+  .tech-tile:focus-visible {
+    transform: none;
+    transition: border-color 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .role-rotator-cursor {
+    animation: none;
+  }
+
+  .service-card,
+  .service-card:hover,
+  .service-card:focus-visible,
+  .service-card-icon,
+  .service-card:hover .service-card-icon,
+  .service-card:focus-visible .service-card-icon {
+    animation: none;
+    transition: none;
+    transform: none;
+  }
+
+  .service-card[style] {
+    animation-delay: 0ms !important;
+  }
 }

@@ -4,9 +4,9 @@ export function Brand() {
   return (
     <Link
       href="/"
-      className="font-mono text-sm font-medium tracking-tight text-accent hover:text-accent-soft"
+      className="whitespace-nowrap text-base font-semibold tracking-tight text-foreground transition-colors hover:text-accent sm:text-lg lg:text-xl"
     >
-      IVWANANJI<span className="text-muted"> / PORTFOLIO</span>
+      Ivwananji Silungwe
     </Link>
   );
 }

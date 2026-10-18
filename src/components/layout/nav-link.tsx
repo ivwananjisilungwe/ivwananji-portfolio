@@ -17,7 +17,13 @@ export function NavLink({ href, children, className }: NavLinkProps) {
     <Link
       href={href}
       aria-current={isCurrent ? "page" : undefined}
-      className={className}
+      className={[
+        "transition-colors",
+        isCurrent ? "text-accent font-medium" : "text-muted-foreground hover:text-accent",
+        className,
+      ]
+        .filter(Boolean)
+        .join(" ")}
     >
       {children}
     </Link>
