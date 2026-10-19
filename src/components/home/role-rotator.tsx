@@ -67,13 +67,24 @@ export function RoleRotator() {
     return () => window.clearTimeout(timeout);
   }, [phase, prefersReducedMotion, role, roleIndex, visibleText]);
 
+  // Reduced motion: swap complete roles on a slow interval instead of the
+  // typewriter, so the rotator still cycles without per-character animation.
+  useEffect(() => {
+    if (!prefersReducedMotion) return;
+
+    const interval = window.setInterval(() => {
+      setRoleIndex((current) => (current + 1) % roles.length);
+    }, 4_000);
+    return () => window.clearInterval(interval);
+  }, [prefersReducedMotion]);
+
   return (
     <p className="mt-5 min-h-[2.5rem] text-xl font-medium tracking-tight text-accent-blue sm:mt-6 sm:min-h-[2.75rem] sm:text-2xl">
       <span className="sr-only">
-        {roles[prefersReducedMotion ? 0 : announcedRoleIndex]}
+        {roles[prefersReducedMotion ? roleIndex : announcedRoleIndex]}
       </span>
       <span aria-hidden="true" className="role-rotator-text">
-        {prefersReducedMotion ? roles[0] : visibleText}
+        {prefersReducedMotion ? roles[roleIndex] : visibleText}
         {!prefersReducedMotion && <span className="role-rotator-cursor">|</span>}
       </span>
     </p>
