@@ -3,6 +3,7 @@ import { ArrowRight, Download } from "lucide-react";
 import { HeroVisual } from "@/components/home/hero-visual";
 import { RoleRotator } from "@/components/home/role-rotator";
 import { HeroSocials } from "@/components/home/hero-socials";
+import { FeaturedMedQueue } from "@/components/home/featured-medqueue";
 
 export default function Home() {
   return (
@@ -53,6 +54,8 @@ export default function Home() {
           <HeroVisual />
         </div>
       </section>
+
+      <FeaturedMedQueue />
 
       <section
         aria-labelledby="approach-title"
