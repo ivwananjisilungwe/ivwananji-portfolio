@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useSyncExternalStore } from "react";
 
-const roles = ["Software Engineer", "AI/ML Engineer", "Full-Stack Developer"] as const;
+const roles = ["Software Engineer", "AI/ML Engineer", "Full Stack Developer"] as const;
 
 function subscribeToMotionPreference(onChange: () => void) {
   const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -72,7 +72,7 @@ export function RoleRotator() {
       <span className="sr-only">
         {roles[prefersReducedMotion ? 0 : announcedRoleIndex]}
       </span>
-      <span aria-hidden="true" className="role-rotator-text inline-block min-w-[21ch]">
+      <span aria-hidden="true" className="role-rotator-text">
         {prefersReducedMotion ? roles[0] : visibleText}
         {!prefersReducedMotion && <span className="role-rotator-cursor">|</span>}
       </span>

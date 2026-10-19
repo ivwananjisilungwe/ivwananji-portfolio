@@ -17,6 +17,9 @@ export default function Home() {
             className="animate-fade-up text-[clamp(2.75rem,8.2vw,5.5rem)] font-medium leading-[0.98] tracking-[-0.06em] text-foreground"
             style={{ animationDelay: "60ms" }}
           >
+            <span className="mb-2 block text-[0.4em] font-medium leading-none tracking-[-0.01em] text-muted-foreground">
+              Hi, I’m
+            </span>{" "}
             Ivwananji
             <br />
             Silungwe

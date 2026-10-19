@@ -28,5 +28,7 @@ export function SocialLinks({ exclude = [] }: SocialLinksProps) {
 }
 
 export function HeroSocials() {
-  return <SocialLinks />;
+  // Homepage keeps GitHub + LinkedIn only. Instagram and Facebook remain
+  // available on the Contact page, which reuses the same socials data.
+  return <SocialLinks exclude={["instagram", "facebook"]} />;
 }
